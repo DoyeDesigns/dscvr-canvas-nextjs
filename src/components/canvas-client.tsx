@@ -4,6 +4,7 @@ import React from "react";
 import UserInfo from "./user-info";
 import { useCanvasClient } from "../hooks/useCanvasClient";
 import { useResizeObserver } from "../hooks/useResizeObserver";
+import { Button } from "@/components/ui/button";
 
 function CanvasClientComponent() {
   const { client, user, content, isReady } = useCanvasClient();
@@ -16,7 +17,7 @@ function CanvasClientComponent() {
   };
 
   if (!isReady) {
-    return <p className="text-center">Loading...</p>;
+    return <p className="text-center">Login to <a href="https://dscvr.one" className="underline" target="blank">dscvr.one</a> to get the full experience</p>;
   }
 
   return (
@@ -37,14 +38,14 @@ function HeightButtons() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {[1000, 1500, 0].map((height) => (
-        <button
+        <Button
           key={height}
           type="button"
           className="text-white font-bold py-2 px-4 rounded bg-gray-500 hover:bg-gray-400 hover:border-gray-500"
           onClick={() => setBodyHeight(height)}
         >
           {height ? `Set height to ${height}px` : "Reset height"}
-        </button>
+        </Button>
       ))}
     </div>
   );

@@ -5,15 +5,12 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>DSCVR Example Canvas - Next.js</title>
-        <meta name="description" content="DSCVR Example Canvas - Next.js" />
+        <meta name="description" content="DSCVR Solana Blinks Hub - Next.js" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="dscvr:canvas:version" content="vNext" />
+        <meta name="og:image" content="https://my-canvas.com/preview-image.png" />
       </Head>
-      <body
-        style={{
-          backgroundColor: "#333",
-        }}
-      >
+      <body>
         <Main />
         <NextScript />
       </body>

@@ -1,39 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Solana Tool Hub
 
-## Getting Started
+Welcome to Solana Tool Hub, a powerful and user-friendly application designed to interact with the Solana blockchain with  DSCVR Canvas utilizing Blinks. This tool provides a range of features to manage your digital assets and engage with decentralized applications seamlessly.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. Send Tokens
+- **Description**: Transfer tokens to any Solana address. Enter the recipient's address and the amount you wish to send, and the tool will handle the transaction for you.
 
-then in another terminal:
+### 2. Stake Tokens
+- **Description**: Stake your tokens to participate in the network and earn rewards. Specify the amount and duration for staking, and manage your staking activities easily.
 
-```base
-npm run tunnel
-```
+### 3. Tip Creators
+- **Description**: Support your favorite creators by sending tips. Enter the creator's address and the tip amount, and the tool facilitates the transfer.
 
-this will generate a cloudflare proxy url which you can paste into a post on dscvr (note: this may take a couple seconds)
+### 4. Claim Airdrops
+- **Description**: Claim airdropped tokens directly to your wallet. Simplify the process of receiving free tokens distributed through airdrops.
 
+### 5. Verify Digital Assets
+- **Description**: Verify the ownership and authenticity of digital assets. Ensure that your NFTs and other digital assets are genuine and belong to you.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Next.js**: Provides server-side rendering and static site generation for optimized performance.
+- **React**: Powers the interactive user interface with a component-based architecture.
+- **TypeScript**: Ensures type safety and enhances the developer experience.
+- **Web3.js**: Facilitates interaction with the Solana blockchain.
+- **Shadcn**: Used for implementing UI components and improving user experience.
+- **Tailwind CSS**: Offers a utility-first approach to styling, enabling responsive and customizable designs.
