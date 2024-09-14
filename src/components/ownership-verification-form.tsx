@@ -40,46 +40,25 @@ export const OwnershipVerificationForm: React.FC = () => {
             throw new Error('NFT not found');
         }
 
-        // Check if the NFT is of a type that has an owner
-        if ('owner' in nft) {
-            // Check that the NFT owner matches the wallet's public key
-            if (nft.owner?.toBase58() === wallet.publicKey.toBase58()) {
-                setVerificationResult('Ownership verified!');
-                toast({
-                    title: "Success",
-                    description: "NFT ownership verified!",
-                    variant: "default",
-                });
-            } else {
-                setVerificationResult('Ownership not verified.');
-                toast({
-                    title: "Result",
-                    description: "NFT ownership not verified.",
-                    variant: "default",
-                });
-            }
-        } else {
-            // If it's an SFT, fetch the token account to verify ownership
-            const tokenAccounts = await metaplex.tokens().findTokenAccountsByMint(nftPubkey);
-            const ownedTokenAccount = tokenAccounts.find(
-                (account: { owner: { toBase58: () => string | undefined; }; }) => account.owner.toBase58() === wallet.publicKey?.toBase58()
-            );
+        // Check ownership using token accounts
+        const tokenAccounts = await connection.getTokenAccountsByOwner(wallet.publicKey, {
+            mint: nftPubkey,
+        });
 
-            if (ownedTokenAccount) {
-                setVerificationResult('Ownership verified (SFT)!');
-                toast({
-                    title: "Success",
-                    description: "SFT ownership verified!",
-                    variant: "default",
-                });
-            } else {
-                setVerificationResult('Ownership not verified.');
-                toast({
-                    title: "Result",
-                    description: "SFT ownership not verified.",
-                    variant: "default",
-                });
-            }
+        if (tokenAccounts.value.length > 0) {
+            setVerificationResult('Ownership verified!');
+            toast({
+                title: "Success",
+                description: "NFT/SFT ownership verified!",
+                variant: "default",
+            });
+        } else {
+            setVerificationResult('Ownership not verified.');
+            toast({
+                title: "Result",
+                description: "NFT/SFT ownership not verified.",
+                variant: "default",
+            });
         }
     } catch (err) {
         console.error(err);
@@ -92,7 +71,6 @@ export const OwnershipVerificationForm: React.FC = () => {
         setIsLoading(false);
     }
 }, [nftAddress, connection, wallet, toast]);
-
 
   return (
     <form onSubmit={verifyOwnership} className='w-full sm:max-w-[500px]'>
